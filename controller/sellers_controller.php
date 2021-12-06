@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Controller;
+
+use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
+
 // Récupération des BDD
 $pr = new ProductRepository($pdo);
 $ur = new UserRepository($pdo);

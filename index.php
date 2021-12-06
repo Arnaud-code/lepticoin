@@ -1,16 +1,22 @@
 <?php 
 
+use App\Helper\HelperBootstrap;
+use App\Helper\HelperFileSystem;
+use App\Helper\HelperSecurite;
+
+require './vendor/autoload.php';
+
 // inclusion des fichiers pricipaux
 require_once "config/config.php";
-require_once "helper/HelperBootstrap.php";
-require_once "helper/HelperFileSystem.php";
+// require_once "helper/HelperBootstrap.php";
+// require_once "helper/HelperFileSystem.php";
 // require_once "helper/HelperHtml.php";
-require_once "helper/HelperSecurite.php";
-$hbs = HelperBootstrap::getSingleton();
-$hfs = HelperFileSystem::getSingleton();
+// require_once "helper/HelperSecurite.php";
+$hbs = new HelperBootstrap();
+$hfs = new HelperFileSystem();
 // $hh = HelperHtml::getSingleton();
-$hs = HelperSecurite::getSingleton();
-require_once "config/db.php";
+$hs = new HelperSecurite();
+// require_once "config/db.php";
 require_once "config/session.php";
 
 // Nom de l'application 

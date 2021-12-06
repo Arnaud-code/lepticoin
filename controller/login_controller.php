@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controller;
+
+use App\Repository\UserRepository;
+
 // Initialisation du tableau des utilisateurs autorisés via la table admin
 $userRepository = new UserRepository($pdo);
 $_SESSION['users'] = $userRepository->findAll()->fetchAll();

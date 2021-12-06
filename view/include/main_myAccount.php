@@ -30,7 +30,9 @@
                 </div>
                 <div class="mb-3 form-group">
                     <label for="userRole" class="form-label">Role</label>
-                    <input type="text" class="form-control" value="<?= $user->getUserRole() ?>" name="userRole" aria-describedby="roleHelp">
+                    <input type="text" class="form-control" value="<?= $user->getUserRole(
+                        
+                    ) ?>" name="userRole" aria-describedby="roleHelp">
                     <div id="roleHelp" class="form-text">Saisir 1 pour un administrateur, 2 pour un simple utilisateur</div>
                 </div>
                 <div>

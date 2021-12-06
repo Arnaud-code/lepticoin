@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Controller;
+
+use App\Entity\Product;
+use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\UserRepository;
+
 // Vérification de l'enregistrement de l'utilisateur
 require_once 'config/auth.php';
 require_once 'config/session.php';

@@ -11,5 +11,9 @@ return array(
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Faker\\' => array($vendorDir . '/fakerphp/faker/src/Faker'),
+    'App\\Repository\\' => array($baseDir . '/class/epository'),
+    'App\\Helper\\' => array($baseDir . '/helper'),
+    'App\\Entity\\' => array($baseDir . '/class/entity'),
+    'App\\Controller\\' => array($baseDir . '/controller'),
     'App\\' => array($baseDir . '/app'),
 );

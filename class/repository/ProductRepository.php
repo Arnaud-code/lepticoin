@@ -1,12 +1,18 @@
 <?php
 
+namespace App\Repository;
+
+use PDO;
+use PDOException;
+use App\Entity\Product;
+
 class ProductRepository {
 
     // Attributs
     protected $pdo;
 
     // Constructeur
-    public function __construct(PDO $pdo) {
+    public function __construct($pdo) {
         $this->pdo = $pdo;
     }
 

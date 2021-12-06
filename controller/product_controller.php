@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Controller;
+
+use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\UserRepository;
+
 // Vérification de la présence d'un id
 if (!!!$_GET['id']) header('Location: ?page=products');
 

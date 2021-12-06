@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Helper;
+
 class HelperFileSystem
 {
     // attribut

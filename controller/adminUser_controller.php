@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Controller;
+
+use App\Entity\User;
+use App\Repository\UserRepository;
+
 // Vérification de l'enregistrement de l'utilisateur
 require_once 'config/auth.php';
 

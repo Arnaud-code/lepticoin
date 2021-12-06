@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Controller;
+
+use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
+
 // Récupération des BDD
 $pr = new ProductRepository($pdo);
 $cr = new CategoryRepository($pdo);

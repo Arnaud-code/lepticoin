@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Controller;
+
+use App\Entity\Product;
+use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\UserRepository;
+
 require_once 'config/auth.php';
 
 // Récupération des BDD

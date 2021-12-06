@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Helper;
+
 class HelperBootstrap
 {
     // attribut
