@@ -42,7 +42,7 @@
                     <span class="badge bg-warning text-dark">$product->price €</span>
                 </td>
                 <td>
-                    <a href="?page=productEdit&id={$product->id}" class="btn btn-sm btn-primary"><i class="bi bi-pen"></i></a>
+                    <a href="?page=myProduct&id={$product->id}" class="btn btn-sm btn-primary"><i class="bi bi-pen"></i></a>
                     <a href="?page=myProducts&trash&id={$product->id}" class="btn btn-sm btn-{$colorButton}"><i class="bi bi-{$iconButton}"></i></a>
                 </td>
             </tr>
@@ -52,4 +52,5 @@ HTML;
 
         </tbody>
     </table>
+    <a href="?page=myProduct" class="btn btn-primary">Nouveau</a>
 </div>

@@ -41,8 +41,8 @@ echo <<<HTML
                         Administrateur
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li disabled><a class="dropdown-item" href="?page=adminProducts">Produits</a></li>
-                        <li class="disabled"><a class="dropdown-item" href="?page=adminCategories">Catégories</a></li>
+                        <li><a class="dropdown-item" href="?page=adminProducts">Produits</a></li>
+                        <li><a class="dropdown-item" href="?page=adminCategories">Catégories</a></li>
                         <li><a class="dropdown-item" href="?page=adminUsers">Utilisateurs</a></li>
                     </ul>
                 </li>
@@ -61,8 +61,10 @@ echo <<<HTML
                         {$dispName}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                        <li><a class="dropdown-item" href="#">Mon compte</a></li>
+                        <li><a class="dropdown-item" href="?page=myAccount">Mon compte</a></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="?page=myProducts">Mes produits</a></li>
+                        <li><a class="dropdown-item" href="?page=myProduct">Nouveau produit</a></li>
                     </ul>
                 </div>
 HTML;

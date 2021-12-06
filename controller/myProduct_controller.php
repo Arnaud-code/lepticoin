@@ -2,38 +2,39 @@
 
 // Vérification de l'enregistrement de l'utilisateur
 require_once 'config/auth.php';
-
-// Vérification des droits de l'utilisateur
 require_once 'config/session.php';
-require_once 'config/admin.php';
 
 // Initialisation de la variable message
 $message = "";
+
 // Récupération de la BDD
 $pr = new ProductRepository($pdo);
 $cr = new CategoryRepository($pdo);
 $ur = new UserRepository($pdo);
 
 $categories = $cr->findAll()->fetchAll();
-$sellers = $ur->findAll()->fetchAll();
 
 // Identification Modification/Nouvelle catégorie
 if (isset($_GET["id"])) {
     if (empty($_GET["id"])) {
-        header("location:?page=adminProduct");
+        header("location:?page=myProduct");
     } else {
         $productId = $_GET["id"];
         $productData = $pr->findBy($productId, "(0, 1)")->fetch();
-        $product = new Product(
-            $productData->id,
-            $productData->categoryId,
-            $productData->name,
-            $productData->slug,
-            $productData->description,
-            $productData->seller,
-            $productData->price / 100,
-            $productData->trash
-        );
+        if ($productData->seller !== $_SESSION['users']->id) {
+            header("location:?page=myProducts");
+        } else {
+            $product = new Product(
+                $productData->id,
+                $productData->categoryId,
+                $productData->name,
+                $productData->slug,
+                $productData->description,
+                $productData->seller,
+                $productData->price / 100,
+                $productData->trash
+            );
+        }
     }
 }
 
@@ -61,11 +62,6 @@ if (isset($_POST["request"])) {
         $alt = $msgDetails === "" ? "" : ", ";
         $msgDetails .= $alt . "description manquante";
     }
-    if (!(isset($_POST["productSeller"]) && !empty($_POST["productSeller"]))) {
-        $isValid = false;
-        $alt = $msgDetails === "" ? "" : ", ";
-        $msgDetails .= $alt . "vendeur manquant";
-    }
     if (!(isset($_POST["productPrice"]) && !empty($_POST["productPrice"]))) {
         $isValid = false;
         $alt = $msgDetails === "" ? "" : ", ";
@@ -80,7 +76,7 @@ if (isset($_POST["request"])) {
             $_POST["productName"],
             $_POST["productSlug"],
             $_POST["productDescription"],
-            $_POST["productSeller"],
+            $_SESSION['users']->id,
             str_replace(",", ".", $_POST["productPrice"]) * 100,
             isset($_POST["productTrash"]) ? 1 : 0
         );
@@ -94,12 +90,9 @@ if (isset($_POST["request"])) {
             $pr->insert($product);
             $productId = $pr->lastInsert();
         }
+
         // Redirection vers page catégories
-        // echo ('<pre>');
-        // var_dump($product);
-        // echo ('</pre>');
-        // echo($_POST['productTrash']);
-        header("location:?page=adminProducts");
+        header("location:?page=myProducts");
 
     } else {
         $message = "Informations incorrectes : " . $msgDetails;

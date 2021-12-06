@@ -3,6 +3,7 @@
 // création d'un objet PDO
 $bdd = 'mvc.db';
 $bddPath = $hfs->pathCreate('s', ['sqlite', 'Data']) . $bdd;
+
 try {
     $pdo = new PDO(
         'sqlite:' . $bddPath,
