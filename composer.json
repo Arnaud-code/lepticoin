@@ -1,0 +1,12 @@
+{
+    "name": "cheza/test",
+    "description": "test",
+    "type": "project",
+    "require": {
+        "symfony/var-dumper": "^5.3",
+        "fakerphp/faker": "^1.16"
+    },
+    "autoload": {
+        "psr-4": {"App\\": "app/"}
+    }
+}
